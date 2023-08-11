@@ -10,41 +10,6 @@ import { LILPACamera } from "component/LILPACamera/indes";
 
 const Home: NextPage = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  // const renderer = window ? new THREE.WebGLRenderer() : null;
-
-  // useEffect(() => {
-  //   if (!renderer) return;
-
-  //   const fbxLoader = new FBXLoader();
-  //   const scene = new THREE.Scene();
-  //   const light = new THREE.PointLight();
-
-  //   const camera = new THREE.PerspectiveCamera(
-  //     75,
-  //     window.innerWidth / window.innerHeight,
-  //     0.1,
-  //     1000
-  //   );
-  //   renderer.setSize(window.innerWidth, window.innerHeight);
-
-  //   const resizeHandler = () => {
-  //     camera.position.set(0.8, 1.4, 1.0);
-  //     light.position.set(0.8, 1.4, 1.0);
-  //     scene.add(light);
-
-  //     fbxLoader.load("/model/lilpa.fbx", (object: any) => {
-  //       scene.add(object);
-  //     });
-
-  //     renderer.render(scene, camera);
-  //   };
-
-  //   window.addEventListener("resize", resizeHandler);
-
-  //   return () => {
-  //     window.removeEventListener("resize", resizeHandler);
-  //   };
-  // }, []);
 
   return (
     <div className={styles.container}>
