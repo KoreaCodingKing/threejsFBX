@@ -33,7 +33,6 @@ export const LILPACamera = () => {
       return;
     }
 
-    // Object를 감싸는 Box를 만들어 Box의 가로를 측정합니다.
     const box = new Box3().setFromObject(object);
     const sizeVec = new Vector3();
     box.getSize(sizeVec);
@@ -42,7 +41,6 @@ export const LILPACamera = () => {
     targetSizeY.set(sizeVec.y);
     targetSizeZ.set(sizeVec.z);
 
-    // Object의 절대 위치를 구해 x, y, z Animation을 구현합니다.
     const vec = new Vector3();
     object.getWorldPosition(vec);
 
@@ -80,67 +78,13 @@ export const LILPACamera = () => {
     (scene as ExtendedThreeScene).orbitControls.update!();
   });
 
-  // useEffect(() => {
-  //   const object = scene.getObjectByName("lilpa");
-
-  //   if (!object) {
-  //     return;
-  //   }
-
-  //   // Object를 감싸는 Box를 만들어 Box의 가로를 측정합니다.
-  //   const box = new Box3().setFromObject(object);
-  //   const sizeVec = new Vector3();
-  //   box.getSize(sizeVec);
-
-  //   targetSizeX.set(sizeVec.x);
-  //   targetSizeY.set(sizeVec.y);
-  //   targetSizeZ.set(sizeVec.z);
-
-  //   // Object의 절대 위치를 구해 x, y, z Animation을 구현합니다.
-  //   const vec = new Vector3();
-  //   object.getWorldPosition(vec);
-
-  //   x.set(vec.x);
-  //   y.set(vec.y);
-  //   z.set(vec.z);
-
-  //   setOnTransition(true);
-
-  //   const timeout = setTimeout(() => {
-  //     setOnTransition(false);
-  //   }, 300);
-
-  //   return () => {
-  //     clearTimeout(timeout);
-  //   };
-  // }, [scene, targetSizeX, targetSizeY, targetSizeZ, x, y, z]);
-
-  // useFrame(({ scene, camera }) => {
-  //   if (onTransition) {
-  //     camera.position.copy(
-  //       new Vector3(
-  //         x.get() + targetSizeX.get(),
-  //         y.get() + targetSizeY.get() / 2,
-  //         z.get() + targetSizeZ.get() / 2
-  //       )
-  //     );
-  //     (scene as ExtendedThreeScene).orbitControls.target = new Vector3(
-  //       x.get(),
-  //       y.get(),
-  //       z.get()
-  //     );
-  //   }
-
-  //   (scene as ExtendedThreeScene).orbitControls.update!();
-  // });
-
   return (
     <>
       <OrbitControls
         attach="orbitControls"
         camera={camera}
         enableDamping
-        enableZoom={false}
+        enableZoom={true}
         enablePan={false}
       ></OrbitControls>
     </>
